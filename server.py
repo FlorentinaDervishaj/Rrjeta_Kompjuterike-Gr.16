@@ -28,7 +28,7 @@ def handle_client(conn, addr):
 
             message = data.decode()
 
-            # ruaj mesazhin (kërkesë e profesoreshës - monitorim)
+            # ruaj mesazhin 
             messages_log.append((addr, message))
 
             print(f"[{addr}] {message}")
