@@ -54,15 +54,15 @@ Port: 5000
 ##HTTP Server
 #Përshkrimi i pjesës së dytë
 
-Kjo pjesë e projektit implementon një HTTP server të thjeshtë në Python, duke përdorur modulet http.server dhe socketserver. Qëllimi i tij është të ofrojë statistika në kohë reale për funksionimin e TCP serverit dhe të mundësojë monitorimin e sistemit përmes një endpoint-i të dedikuar.
+#Kjo pjesë e projektit implementon një HTTP server të thjeshtë në Python, duke përdorur modulet http.server dhe socketserver. Qëllimi i tij është të ofrojë statistika në kohë reale për funksionimin e TCP serverit dhe të mundësojë monitorimin e sistemit përmes një endpoint-i të dedikuar.
 
-Kjo pjesë demonstron konceptet kryesore si:
+#Kjo pjesë demonstron konceptet kryesore si:
 -komunikimi përmes protokollit HTTP
 -ndërtimi i një API-je bazike
 -bashkëpunimi ndërmjet serverit TCP dhe HTTP
 -përdorimi i multi-threading për ekzekutim paralel
 
-Funksionalitetet kryesore:
+#Funksionalitetet kryesore:
 -Inicializimi i një HTTP serveri në Python
 -Implementimi i endpoint-it /stats
 -Kthimi i të dhënave në format JSON
@@ -73,13 +73,13 @@ Funksionalitetet kryesore:
 -Menaxhimi i kërkesave të pavlefshme (404)
 -Përdorimi i threading për trajtim efikas të kërkesave
 
-Teknologjitë e përdorura
+#Teknologjitë e përdorura
 -Python 3
 -http.server
 -socketserver
 -JSON
 
-Ekzekutimi i projektit
+#Ekzekutimi i projektit
 -Për të nisur serverin:
 1.Hap terminalin në folderin e projektit
 2.Ekzekuto komandën: python server.py
@@ -87,18 +87,18 @@ Ekzekutimi i projektit
    IP: localhost
    Port: 8080
 
-Qasja në statistika
+#Qasja në statistika
 Statistikat mund të shihen duke hapur në browser:
 http://localhost:8080/stats
 
-Funksionimi:
+#Funksionimi:
 -HTTP serveri funksionon paralelisht me TCP serverin
 -Çdo kërkesë trajtohet në mënyrë të pavarur
 -Endpoint /stats gjeneron një përgjigje në JSON
 -Të dhënat merren nga strukturat globale (clients_active, total_messages)
 -Përdoret lock për të siguruar integritetin e të dhënave gjatë ekzekutimit paralel
 
-Përfundim
+#Përfundim
 Kjo pjesë e projektit ofron:
 -monitorim në kohë reale të serverit
 -pasqyrë të aktivitetit të klientëve
@@ -106,6 +106,6 @@ Kjo pjesë e projektit ofron:
 
 
 
-#Autori
+##Autori
 
 -Florentina Dervishaj- Implementimi i HTTP serverit për statistika
