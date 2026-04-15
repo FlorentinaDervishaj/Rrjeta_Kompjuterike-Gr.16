@@ -113,11 +113,11 @@ http://localhost:8080/stats
 - Të dhënat merren nga strukturat globale (clients_active, total_messages)  
 - Përdoret lock për të siguruar integritetin e të dhënave gjatë ekzekutimit paralel  
 
-## Përfundim
-Kjo pjesë e projektit ofron:
--monitorim në kohë reale të serverit
--pasqyrë të aktivitetit të klientëve
--integrim të dy protokolleve (TCP dhe HTTP) në një sistem të vetëm
+## Kjo pjesë e projektit ofron:
+
+- monitorim në kohë reale të serverit  
+- pasqyrë të aktivitetit të klientëve  
+- integrim të dy protokolleve (TCP dhe HTTP) në një sistem të vetëm  
 
 ## Autori
 -Florentina Dervishaj – Implementimi i HTTP serverit për statistika
