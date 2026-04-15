@@ -105,18 +105,18 @@ Statistikat mund të shihen duke hapur në browser:
 
 http://localhost:8080/stats
 
-Funksionimi
+##Funksionimi
 HTTP serveri funksionon paralelisht me TCP serverin
 Çdo kërkesë trajtohet në mënyrë të pavarur
 Endpoint /stats gjeneron një përgjigje në JSON
 Të dhënat merren nga strukturat globale (clients_active, total_messages)
 Përdoret lock për të siguruar integritetin e të dhënave gjatë ekzekutimit paralel
-Përfundim
 
+##Përfundim
 Kjo pjesë e projektit ofron:
+-monitorim në kohë reale të serverit
+-pasqyrë të aktivitetit të klientëve
+-integrim të dy protokolleve (TCP dhe HTTP) në një sistem të vetëm
 
-monitorim në kohë reale të serverit
-pasqyrë të aktivitetit të klientëve
-integrim të dy protokolleve (TCP dhe HTTP) në një sistem të vetëm
-Autori
-Florentina Dervishaj – Implementimi i HTTP serverit për statistika
+##Autori
+-Florentina Dervishaj – Implementimi i HTTP serverit për statistika
