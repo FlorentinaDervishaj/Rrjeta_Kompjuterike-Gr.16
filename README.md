@@ -106,11 +106,12 @@ Statistikat mund të shihen duke hapur në browser:
 http://localhost:8080/stats
 
 ## Funksionimi
-HTTP serveri funksionon paralelisht me TCP serverin
-Çdo kërkesë trajtohet në mënyrë të pavarur
--Endpoint /stats gjeneron një përgjigje në JSON
--Të dhënat merren nga strukturat globale (clients_active, total_messages)
--Përdoret lock për të siguruar integritetin e të dhënave gjatë ekzekutimit paralel
+
+- HTTP serveri funksionon paralelisht me TCP serverin  
+- Çdo kërkesë trajtohet në mënyrë të pavarur  
+- Endpoint /stats gjeneron një përgjigje në JSON  
+- Të dhënat merren nga strukturat globale (clients_active, total_messages)  
+- Përdoret lock për të siguruar integritetin e të dhënave gjatë ekzekutimit paralel  
 
 ## Përfundim
 Kjo pjesë e projektit ofron:
