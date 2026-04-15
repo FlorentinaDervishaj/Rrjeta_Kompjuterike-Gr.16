@@ -93,6 +93,7 @@ Për të nisur serverin:
 
 ```bash
 python server.py
+```
 
 HTTP serveri do të jetë aktiv në:
 
