@@ -123,6 +123,7 @@ http://localhost:8080/stats
 -Florentina Dervishaj – Implementimi i HTTP serverit për statistika
 
 
+## Client TCP
 ## Përshkrimi i pjesës së katërt
 
 Kjo pjesë përfshin implementimin e client-it TCP që lidhet me serverin dhe komunikon me të.
