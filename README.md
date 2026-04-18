@@ -92,7 +92,7 @@ Për të nisur serverin:
 2. Ekzekuto komandën:
 
 ```bash
-python server.py
+python tcp_server.py
 ```
 
 HTTP serveri do të jetë aktiv në:
