@@ -121,3 +121,53 @@ http://localhost:8080/stats
 
 ## Autori
 -Florentina Dervishaj – Implementimi i HTTP serverit për statistika
+
+
+## Përshkrimi i pjesës së katërt
+
+Kjo pjesë përfshin implementimin e client-it TCP që lidhet me serverin dhe komunikon me të.
+
+Fokusi kryesor është funksionaliteti READ, i cili mundëson:
+- dërgimin e kërkesave 
+- pranimin e përgjigjeve
+- shfaqjen e tyre në console
+
+## Funksionalitetet e implementuara
+- Krijimi i client socket
+- Lidhja me server
+- Dërgimi i mesazheve
+- Pranimi i përgjigjeve
+- Implementimi bazë i READ
+- Shfaqja e rezultateve në console
+
+## Funksionaliteti READ
+Read është funksioni bazë i komunikimit klient-server.
+
+Si funksionon:
+1. Klienti dërgon një mesazh (p.sh. /read file.txt)
+2. Serveri e pranon mesazhin
+3. Serveri kthen përgjigje
+4. Klienti e shfaq përgjigjen
+
+## Si të ekzekutohet client-i
+python client.py
+
+Pastaj:
+- Vendos IP e serverit (p.sh. 127.0.0.1) 
+- Port: 5000
+
+## Funksionimi i client-it
+- Dërgon mesazh me send()
+- Merr përgjigje me recv()
+- Shfaq rezultatin në console
+- Mund të shkëputet me exit
+
+## Përfundim
+Ky projekt demonstron:
+- komunikimin TCP client-server
+- menaxhimin e shumë klientëve
+- përdorimin e multithreading
+- monitorimin përmes HTTP serverit
+
+## Autori
+- Fjolla Jakupi -  Implementimi i client-it TCP
