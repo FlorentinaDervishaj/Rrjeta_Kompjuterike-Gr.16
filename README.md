@@ -2,7 +2,7 @@
 
 # TCP Server
 ##  Përshkrimi pjesës parë
-Kjo pjesë e projektit përfaqëson një server të thjeshtë TCP i ndërtuar në Python duke përdorur socket dhe threading. Serveri lejon lidhjen e disa klientëve në të njëjtën kohë dhe menaxhon komunikimin mes tyre.
+Ky projekt implementon një server TCP në Python që lejon komunikim client-server dhe menaxhimin e disa klientëve njëkohësisht duke përdorur threading.
 
 Qëllimi kësaj pjese është të demonstrojë konceptet bazë të rrjeteve kompjuterike si:
 - komunikimi client-server
@@ -38,14 +38,17 @@ Port: 5000
 Klientët mund të lidhen në server duke përdorur IP-në e serverit dhe portin 5000.
 
 Shembull:
-IP: <IP e serverit>  
+IP: 192.168.1.100 (shembull) 
 Port: 5000
 
-##  Funksionimi i serverit
-- Çdo klient trajtohet në një thread të veçantë
-- Serveri pranon deri në 4 klientë njëkohësisht
-- Nëse limiti tejkalohet, lidhja refuzohet
-- Nëse klienti nuk dërgon mesazh për 60 sekonda, ai shkëputet automatikisht
+ ## Testimi
+Ky projekt mund të testohet në një rrjet lokal (LAN) duke përdorur disa pajisje të lidhura në të njëjtin rrjet WiFi.
+
+Testimi përfshin:
+- Lidhjen e disa klientëve me serverin
+- Dërgimin dhe pranimin e mesazheve
+- Verifikimin e limitit të klientëve (maksimum 4)
+- Testimin e timeout për klientët joaktiv
 
 ##  Autori
 - Fiona Grabovci – Implementimi i serverit TCP (socket + threading + menaxhimi i klientëve)
