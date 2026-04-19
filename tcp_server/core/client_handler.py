@@ -8,7 +8,6 @@ from auth.privileges import get_privilege
 from commands.processor import process_command, WELCOME_TEXT, QUIT_SIGNAL
 from utils.logger import log
 
-# ── message_log — lista globale e logut ──────────────────────────────────────
 message_log: list = []
 
 
@@ -94,10 +93,10 @@ def handle_client(conn: socket.socket, addr: tuple) -> None:
         log.info(f"[+] Klienti u lidh: {client_name} @ {addr_str} [{privilege}]")
 
         # ── 3. Welcome message ────────────────────────────────────────────────
+        # Feedbacku i pare — i rendesishem per nc ku ekrani eshte bosh
+        _send(conn, f"[SERVER] U lidhët si: {client_name}")
         _send(conn, WELCOME_TEXT)
         _send(conn, f"Privilegji yt: {privilege}")
-
-        # ── Timeout dinamik: admin -> 2x kohe ─────────────────────────────────
         timeout = TIMEOUT_SEC * 2 if privilege == "admin" else TIMEOUT_SEC
         conn.settimeout(timeout)
 
@@ -116,13 +115,12 @@ def handle_client(conn: socket.socket, addr: tuple) -> None:
 
             text = data.decode("utf-8", errors="replace").strip()
 
-            # ── 5. Ruaj çdo mesazh ne log ─────────────────────────────────────
+            # ── S4: Ruaj cdo mesazh ne log ────────────────────────────────────
             save_message_to_log(addr_str, text)
 
-            # RREGULLIM: Merr privilegjin e fundit dinamikisht
-            # (ne rast qe klienti ka bere /admin gjate sesionit)
+            # Merr privilegjin e fundit dinamikisht
             with server_state["lock"]:
-                client_info = server_state["active_clients"].get(addr_str, {})
+                client_info      = server_state["active_clients"].get(addr_str, {})
                 current_privilege = client_info.get("privilege", privilege)
 
             response = process_command(text, client_name, current_privilege, addr_str)
@@ -140,7 +138,6 @@ def handle_client(conn: socket.socket, addr: tuple) -> None:
     except Exception as e:
         log.error(f"[ERROR] Gabim me {client_name}: {e}")
     finally:
-        # ── 7. Cleanup ────────────────────────────────────────────────────────
         _unregister_client(addr_str)
         conn.close()
         log.info(f"[~] Lidhja u mbyll: {client_name} @ {addr_str}")
