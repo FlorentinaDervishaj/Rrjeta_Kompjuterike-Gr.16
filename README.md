@@ -1,45 +1,82 @@
 # Rrjeta_Kompjuterike-Gr.16
 
-# TCP Server
-##  Përshkrimi pjesës parë
-Ky projekt implementon një server TCP në Python që lejon komunikim client-server dhe menaxhimin e disa klientëve njëkohësisht duke përdorur threading.
+##  Përshkrimi i Projektit
+Ky projekt paraqet implementimin e një sistemi të shpërndarë client-server në gjuhën Python, duke kombinuar komunikimin përmes TCP socket-eve me një HTTP server për monitorim në kohë reale.
 
-Qëllimi kësaj pjese është të demonstrojë konceptet bazë të rrjeteve kompjuterike si:
-- komunikimi client-server
-- përdorimi i TCP socket
-- menaxhimi i shumë klientëve njëkohësisht (multi-threading)
+##  Qëllimi i Projektit
+Demonstrimi praktik i koncepteve kryesore të rrjeteve kompjuterike:
+•	Komunikimi client-server
+•	Menaxhimi i shumë klientëve njëkohësisht
+•	Kontrolli i qasjes (privilegjet)
+•	Monitorimi i aktivitetit të serverit
 
-##  Funksionalitetet e implementuara
-- Krijimi i serverit TCP me Python
-- Vendosja e IP adresës dhe portit
-- Pranimi i lidhjeve nga klientët
-- Menaxhimi i klientëve me threading
-- Limitimi i numrit të klientëve aktiv (MAX CLIENTS = 4)
-- Refuzimi i klientëve kur serveri është i mbingarkuar
-- Timeout për klientët jo-aktiv (60 sekonda)
-- Dërgimi i përgjigjes për çdo mesazh të pranuar
-- Menaxhimi i listës së klientëve aktiv
+##  Arkitektura e Sistemit
+🔹 TCP Server
+TCP Server-i është komponenti kryesor që menaxhon komunikimin me klientët.
+Funksionalitetet:
+•	Dëgjimi në IP dhe port të konfiguruar
+•	Pranimi i shumë klientëve (multi-threading)
+•	Kufizimi i numrit të klientëve aktiv (max clients)
+•	Timeout për klientët joaktiv
+•	Ruajtja e mesazheve për monitorim
+•	Menaxhimi i privilegjeve (admin / read-only)
+
+🔹 HTTP Server (Monitoring)
+HTTP Server-i funksionon paralelisht dhe mundëson monitorimin e sistemit.
+Endpoint:
+GET /stats
+Kthen në JSON:
+•	Numrin e klientëve aktiv
+•	IP dhe portet e tyre
+•	Numrin total të mesazheve
+•	Kohën e serverit
+
+🔹 TCP Client
+Client-i mundëson komunikimin me serverin dhe ekzekutimin e komandave.
+Funksionalitetet:
+•	Lidhja me serverin (IP + port)
+•	Dërgimi dhe pranimi i mesazheve
+•	Ekzekutimi i komandave
+
+Ndarja e roleve:
+•	Admin client – qasje e plotë
+•	User client – vetëm read
+
 
 ##  Teknologjitë e përdorura
-- Python 3
-- Socket Programming (TCP)
-- Threading
+Teknologjitë e Përdorura:
+•	Python 3
+•	socket (TCP)
+•	threading
+•	http.server
+•	socketserver
+•	JSON
 
 ##  Si të ekzekutohet projekti
 1. Hap terminalin në folderin e projektit
 2. Ekzekuto serverin me komandën:
    python server.py
 
-Serveri do të fillojë të dëgjojë klientët në:
-IP: 0.0.0.0  
-Port: 5000
+Serveri
+```bash
+python tcp_server.py
+```
+python main.py
+•	TCP Server: 0.0.0.0:5000
+•	HTTP Server: http://localhost:8080/stats
 
-##  Lidhja e klientëve
-Klientët mund të lidhen në server duke përdorur IP-në e serverit dhe portin 5000.
+Client-i
+```bash
+python client.py
+```
 
-Shembull:
-IP: 192.168.1.100 (shembull) 
-Port: 5000
+##  Karakteristikat Kryesore
+Karakteristikat Kryesore
+•	Multi-threading dhe kontroll i ngarkesës
+•	Role-based access control
+•	Monitorim në kohë reale përmes HTTP
+•	Integrim i TCP dhe HTTP
+
 
  ## Testimi
 Ky projekt mund të testohet në një rrjet lokal (LAN) duke përdorur disa pajisje të lidhura në të njëjtin rrjet WiFi.
@@ -50,128 +87,8 @@ Testimi përfshin:
 - Verifikimin e limitit të klientëve (maksimum 4)
 - Testimin e timeout për klientët joaktiv
 
-##  Autori
-- Fiona Grabovci – Implementimi i serverit TCP (socket + threading + menaxhimi i klientëve)
-
-
-## HTTP Server
-
-## Përshkrimi i pjesës së dytë
-
-Kjo pjesë e projektit implementon një HTTP server të thjeshtë në Python, duke përdorur modulet `http.server` dhe `socketserver`.  
-Qëllimi i tij është të ofrojë statistika në kohë reale për funksionimin e TCP serverit dhe të mundësojë monitorimin e sistemit përmes një endpoint-i të dedikuar.
-
-Kjo pjesë demonstron konceptet kryesore si:
-
-- komunikimi përmes protokollit HTTP  
-- ndërtimi i një API-je bazike  
-- bashkëpunimi ndërmjet serverit TCP dhe HTTP  
-- përdorimi i multi-threading për ekzekutim paralel  
-
-## Funksionalitetet kryesore
-
-- Inicializimi i një HTTP serveri në Python  
-- Implementimi i endpoint-it `/stats`  
-- Kthimi i të dhënave në format JSON  
-- Paraqitja e numrit të klientëve aktivë  
-- Listimi i klientëve (IP, port, privilegje)  
-- Numërimi i mesazheve të pranuara nga serveri TCP  
-- Shfaqja e kohës aktuale të serverit  
-- Menaxhimi i kërkesave të pavlefshme (404)  
-- Përdorimi i threading për trajtim efikas të kërkesave  
-
-## Teknologjitë e përdorura
-
-- Python 3  
-- `http.server`  
-- `socketserver`  
-- JSON  
-
-## Ekzekutimi i projektit
-
-Për të nisur serverin:
-
-1. Hap terminalin në folderin e projektit  
-2. Ekzekuto komandën:
-
-```bash
-python tcp_server.py
-```
-
-HTTP serveri do të jetë aktiv në:
-
-IP: localhost
-Port: 8080
-Qasja në statistika
-
-Statistikat mund të shihen duke hapur në browser:
-
-http://localhost:8080/stats
-
-## Funksionimi
-
-- HTTP serveri funksionon paralelisht me TCP serverin  
-- Çdo kërkesë trajtohet në mënyrë të pavarur  
-- Endpoint /stats gjeneron një përgjigje në JSON  
-- Të dhënat merren nga strukturat globale (clients_active, total_messages)  
-- Përdoret lock për të siguruar integritetin e të dhënave gjatë ekzekutimit paralel  
-
-## Kjo pjesë e projektit ofron:
-
-- monitorim në kohë reale të serverit  
-- pasqyrë të aktivitetit të klientëve  
-- integrim të dy protokolleve (TCP dhe HTTP) në një sistem të vetëm  
-
-## Autori
--Florentina Dervishaj – Implementimi i HTTP serverit për statistika
-
-
-## Client TCP
-## Përshkrimi i pjesës së katërt
-
-Kjo pjesë përfshin implementimin e client-it TCP që lidhet me serverin dhe komunikon me të.
-
-Fokusi kryesor është funksionaliteti READ, i cili mundëson:
-- dërgimin e kërkesave 
-- pranimin e përgjigjeve
-- shfaqjen e tyre në console
-
-## Funksionalitetet e implementuara
-- Krijimi i client socket
-- Lidhja me server
-- Dërgimi i mesazheve
-- Pranimi i përgjigjeve
-- Implementimi bazë i READ
-- Shfaqja e rezultateve në console
-
-## Funksionaliteti READ
-Read është funksioni bazë i komunikimit klient-server.
-
-Si funksionon:
-1. Klienti dërgon një mesazh (p.sh. /read file.txt)
-2. Serveri e pranon mesazhin
-3. Serveri kthen përgjigje
-4. Klienti e shfaq përgjigjen
-
-## Si të ekzekutohet client-i
-python client.py
-
-Pastaj:
-- Vendos IP e serverit (p.sh. 127.0.0.1) 
-- Port: 5000
-
-## Funksionimi i client-it
-- Dërgon mesazh me send()
-- Merr përgjigje me recv()
-- Shfaq rezultatin në console
-- Mund të shkëputet me exit
-
-## Përfundim
-Ky projekt demonstron:
-- komunikimin TCP client-server
-- menaxhimin e shumë klientëve
-- përdorimin e multithreading
-- monitorimin përmes HTTP serverit
-
-## Autori
-- Fjolla Jakupi -  Implementimi i client-it TCP
+##  Autorët
+•	Fiona Grabovci – TCP Server
+•	Rinor Maliqi -TCP Server(Logjika)
+•	Florentina Dervishaj – HTTP Server
+•	Fjolla Jakupi – TCP Client
