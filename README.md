@@ -11,7 +11,7 @@ Demonstrimi praktik i koncepteve kryesore të rrjeteve kompjuterike:
 -	Monitorimi i aktivitetit të serverit
 
 ##  Arkitektura e Sistemit
-# TCP Server
+### TCP Server
 TCP Server-i është komponenti kryesor që menaxhon komunikimin me klientët.
 Funksionalitetet:
 -	Dëgjimi në IP dhe port të konfiguruar
@@ -21,7 +21,7 @@ Funksionalitetet:
 -	Ruajtja e mesazheve për monitorim
 -	Menaxhimi i privilegjeve (admin / read-only)
 
-# HTTP Server (Monitoring)
+### HTTP Server (Monitoring)
 HTTP Server-i funksionon paralelisht dhe mundëson monitorimin e sistemit.
 Endpoint:
 GET /stats
@@ -31,7 +31,7 @@ Kthen në JSON:
 -	Numrin total të mesazheve
 -	Kohën e serverit
 
-# TCP Client
+### TCP Client
 Client-i mundëson komunikimin me serverin dhe ekzekutimin e komandave.
 Funksionalitetet:
 -	Lidhja me serverin (IP + port)
