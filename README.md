@@ -14,43 +14,43 @@ Demonstrimi praktik i koncepteve kryesore të rrjeteve kompjuterike:
 🔹 TCP Server
 TCP Server-i është komponenti kryesor që menaxhon komunikimin me klientët.
 Funksionalitetet:
-•	Dëgjimi në IP dhe port të konfiguruar
-•	Pranimi i shumë klientëve (multi-threading)
-•	Kufizimi i numrit të klientëve aktiv (max clients)
-•	Timeout për klientët joaktiv
-•	Ruajtja e mesazheve për monitorim
-•	Menaxhimi i privilegjeve (admin / read-only)
+-	Dëgjimi në IP dhe port të konfiguruar
+-	Pranimi i shumë klientëve (multi-threading)
+-	Kufizimi i numrit të klientëve aktiv (max clients)
+-	Timeout për klientët joaktiv
+-	Ruajtja e mesazheve për monitorim
+-	Menaxhimi i privilegjeve (admin / read-only)
 
 🔹 HTTP Server (Monitoring)
 HTTP Server-i funksionon paralelisht dhe mundëson monitorimin e sistemit.
 Endpoint:
 GET /stats
 Kthen në JSON:
-•	Numrin e klientëve aktiv
-•	IP dhe portet e tyre
-•	Numrin total të mesazheve
-•	Kohën e serverit
+-	Numrin e klientëve aktiv
+-	IP dhe portet e tyre
+-	Numrin total të mesazheve
+-	Kohën e serverit
 
 🔹 TCP Client
 Client-i mundëson komunikimin me serverin dhe ekzekutimin e komandave.
 Funksionalitetet:
-•	Lidhja me serverin (IP + port)
-•	Dërgimi dhe pranimi i mesazheve
-•	Ekzekutimi i komandave
+-	Lidhja me serverin (IP + port)
+-	Dërgimi dhe pranimi i mesazheve
+-	Ekzekutimi i komandave
 
 Ndarja e roleve:
-•	Admin client – qasje e plotë
-•	User client – vetëm read
+-	Admin client – qasje e plotë
+-	User client – vetëm read
 
 
 ##  Teknologjitë e përdorura
 Teknologjitë e Përdorura:
-•	Python 3
-•	socket (TCP)
-•	threading
-•	http.server
-•	socketserver
-•	JSON
+-	Python 3
+-	socket (TCP)
+-	threading
+-	http.server
+-	socketserver
+-	JSON
 
 ##  Si të ekzekutohet projekti
 1. Hap terminalin në folderin e projektit
@@ -72,10 +72,10 @@ python client.py
 
 ##  Karakteristikat Kryesore
 Karakteristikat Kryesore
-•	Multi-threading dhe kontroll i ngarkesës
-•	Role-based access control
-•	Monitorim në kohë reale përmes HTTP
-•	Integrim i TCP dhe HTTP
+-	Multi-threading dhe kontroll i ngarkesës
+-	Role-based access control
+-	Monitorim në kohë reale përmes HTTP
+-	Integrim i TCP dhe HTTP
 
 
  ## Testimi
@@ -88,7 +88,7 @@ Testimi përfshin:
 - Testimin e timeout për klientët joaktiv
 
 ##  Autorët
-•	Fiona Grabovci – TCP Server
-•	Rinor Maliqi -TCP Server(Logjika)
-•	Florentina Dervishaj – HTTP Server
-•	Fjolla Jakupi – TCP Client
+-	Fiona Grabovci – TCP Server
+-	Rinor Maliqi -TCP Server(Logjika)
+-	Florentina Dervishaj – HTTP Server
+-	Fjolla Jakupi – TCP Client
