@@ -62,8 +62,8 @@ Serveri
 python tcp_server.py
 ```
 python main.py
-•	TCP Server: 0.0.0.0:5000
-•	HTTP Server: http://localhost:8080/stats
+-	TCP Server: 0.0.0.0:5000
+-	HTTP Server: http://localhost:8080/stats
 
 Client-i
 ```bash
