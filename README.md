@@ -5,10 +5,10 @@ Ky projekt paraqet implementimin e një sistemi të shpërndarë client-server n
 
 ##  Qëllimi i Projektit
 Demonstrimi praktik i koncepteve kryesore të rrjeteve kompjuterike:
-•	Komunikimi client-server
-•	Menaxhimi i shumë klientëve njëkohësisht
-•	Kontrolli i qasjes (privilegjet)
-•	Monitorimi i aktivitetit të serverit
+-	Komunikimi client-server
+-	Menaxhimi i shumë klientëve njëkohësisht
+-	Kontrolli i qasjes (privilegjet)
+-	Monitorimi i aktivitetit të serverit
 
 ##  Arkitektura e Sistemit
 🔹 TCP Server
